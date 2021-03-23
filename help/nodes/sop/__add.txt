@@ -1,0 +1,138 @@
+= Add =
+
+#type: node
+#context: sop
+#internal: add
+#icon: SOP/add
+#tags: points, polygons, create, tech
+
+"""Creates Points or Polygons, or adds points/polys to an input."""
+
+If an input is specified, this OP adds points and polygons to it as
+specified below. If no input is specified, then it generates the points
+and polygons below as a new entity.
+
+== Extract points ==
+
+    Used in conjunction with a point expression, the Add op can be
+    useful for extracting a specific point from another op. For example,
+    to extract the X, Y and Z value of the fifth point, from a [Grid
+    SOP|Node:sop/grid] in _geo1_:
+
+    {{{
+    point("geo1/grid1",5,"P",0),point("geo2/grid1",5,"P",1), point("geo3/grid1",5,"P",2)
+    }}}
+    Points added in this way are appended to the end of the point list
+    if a Source is specified. Click the Information Pop-up on the op
+    Tile to find out how many points there are. For example, if you have
+    added two points and there are 347 points (from 0 to 346), you have
+    added the last two point numbers: 345 and 346.
+
+== Create a specific number of points ==
+
+    Create an Add SOP and set it to create a single point, then append a
+    [Copy SOP|Node:sop/copy] and set its number of copies to the
+    (possibly animated) number of points you want.
+
+    This works correctly even when number of points is 0, unlike some
+    other approaches.
+
+
+@parameters
+
+    == Points ==
+
+        Overview:
+            The three leftmost input fields represent the X,Y and Z
+            coordinates of the point. The last input field represents
+            the spline weight of the point. If the point is later used
+            to create a spline (NURBS or Bezier) primitive, the weight
+            will influence the shape of the primitive and may cause that
+            primitive to become rational. Polygons and metaballs are not
+            affected by this weight.
+
+            X, Y, Z, and W can be constants (numbers) or variables.
+
+        Delete Geometry But Keep the Points:
+            This will destroy all the polygons, NURBs, and other
+            primitives, leaving only the points intact.
+
+    == Polygons: By Pattern ==
+
+        Overview:
+            Create a fixed number of polygons by specifying a point
+            pattern for each polygon Enter connection lists here to
+            create polygons.
+
+            {{{
+            {from}-{to}[:{every}][,{of}]
+            eg1: 1 2 3 4
+            eg2: 1 3-15 16 8
+            eg3: 1-234 820-410 235-409
+            eg4: 0-15:2
+            eg5: 0-15:2,3
+            }}}
+
+    == Polygons: By Group ==
+
+        Overview:
+            Create as many polygons as determined by the group field and
+            by the grouping/skipping rules.
+        Group:
+            Subset of points to be connected.
+        Add:
+            Optionally join subgroups of points.
+        N:
+            #channels: /inc
+
+            Increment to use for subgroup joining.
+        Attribute:
+            If group by attribute is specified, this attribute will be
+            used to determine how to connect the polygons within the
+            group. Points with the same attribute value will be
+            connected together. The connection order will respect the
+            point order of the group.
+        Remove Unused Points:
+            Keep only the connected points.
+
+    == Particles ==
+	Overview:
+	    Allows you to create a particle system out of a collection
+	    of points.  Note that this will not create all the
+	    attributes you may want on a particle system.  It is
+	    useful when you have a collection of points you wish to
+	    flag as a particle system for other operations, such as
+	    the Initial State, or as a source in DOPs.
+
+	    To convert all your geometry into particles, turn on the __Keep
+	    Points but Delete Primitives__ checkbox on the __Points__ tab and then
+	    enable this with a blank group field.
+
+	Add Particle System:
+	    Controls whether a particle system primitive is created.
+
+	Particle Group:
+	    The points to add to the particle system.  These are added
+	    in the order specified.  If this field is left blank, all points will be
+	    added to the particle system.
+
+	Add Unused Points to Particle System:
+	    If no particle primitives exist, one will be created.
+
+	    All points that are not part of any primitive will be appended to
+	    the first particle primitive.
+	    
+@locals
+    N:
+        Index of the last point in the geometry.
+    CEX, CEY, CEZ:
+        The centroid of the input.
+    XMIN, XMAX:
+        The X extents of the bounding box of the input.
+    YMIN, YMAX:
+        The Y extents of the bounding box of the input.
+    ZMIN, ZMAX:
+        The Z extents of the bounding box of the input.
+    SIZEX, SIZEY, SIZEZ:
+        The size of the bounding box of the input.
+

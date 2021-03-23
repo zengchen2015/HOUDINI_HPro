@@ -1,0 +1,42 @@
+= HPro - Create Detail Attribute for Loop =
+
+#type: node
+#context: sop
+#internal: hpro::create_detail_attr_for_loop
+#icon: SOP/attribcreate
+#tags: hpro, attribute
+
+""" A node to create detail attribute from target node's "Multiparm Block" parameter. """
+
+NOTE:
+    Must say thanks to [海棠|https://vimeo.com/particleflow/]
+    
+== Why made such a HDA ==
+It is the only way to get "Multiparm Block" parameter in for-loop with a compile block.
+    
+@parameters
+    Op with Iteration:
+        Specified metadata node which has detail iteration attribute.
+    Iteration Attribute:
+        The default iteration attribute is "iteration", you can fill with other detail int attribute.
+    Iteration Shift:
+        You can shift the int iteration value by yourself.
+    Op with Multiparm:
+        The node which has "Multiparm Block" parameter, it often be the parent node.
+    Full Path:
+        The full path of the *Op with Multiparm*, just show your the path, it can not be custom changed.
+        
+    == Create Attribute	 ==
+    Create Attribute:
+        Create attribute from the parameters in "Multiparm Block" (from the Op with Multiparm).
+    Parm Name From Multiparm:
+        For example, it is the target "Multiparm Block" parameter, the "Blend Mode" parameter's name is "blend_mode#"
+        [Image:/images/create_detail_attr-for_loop1.png]
+        So will fill with "blend_mode" here.
+        [Image:/images/create_detail_attr-for_loop2.png]
+    Parm Type:
+        Also use the "Blend Mode" parameter, it is a menu type parameter, which imply an *int* type. So the parameter type is int.
+    Detail Attribute:
+        Get the "Multiparameter Block" parameter's value and type, then write it into a detail attribute. This is the detail attribute'name.
+        
+        

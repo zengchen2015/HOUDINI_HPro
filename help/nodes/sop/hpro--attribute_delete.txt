@@ -1,0 +1,12 @@
+= HPro - Attribute Delete =
+
+#type: node
+#context: sop
+#internal: hpro::attribute_delete
+#icon: SOP/attribdelete
+#tags: hpro, attribute
+
+""" Deletes point and primitive attributes. """
+
+It has the same features of the built-in "attribute_delete" SOP,
+I just add Descriptive Parm to it.

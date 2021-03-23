@@ -1,0 +1,47 @@
+#type: node
+#context: sop
+#internal: hpro::xform_axis
+#icon: SOP/xformaxis
+#tags: hpro, transform
+
+= Transform Axis =
+
+"""Transforms the input geometry relative to a specific axis."""
+
+This is useful to derive an animatable channel to transform an
+object about a single axis.
+
+
+@parameters
+    Origin Use:
+        The pivot to do the transform with. You can use value or point attribute to set origin position.
+
+    Direction Use:
+        The orientation of the axis to transform with. You can use value or point attribute to set direction.
+
+    Translate Use:
+        Amount of translation along the axis(normalized). You can use value or point attribute to set translate amount.
+
+    Rotate Use:
+        Amount of rotation about the axis. You can use value or point attribute to set rotate amount.
+
+    Scale Use:
+        Non-uniform scaling along the axis. You can use value or point attribute to set scale amount.
+        
+    Attributes to Transform:
+        Point and Vertex attributes that match this pattern will be transformed. Their Type Info will be used to determine how they should transform, as points, vectors, and normals all need different operations.
+
+        If P matches this string, then primitive transforms will also be rotated.
+
+        In no case is the transform attribute itself transformed.
+        
+    Invert Transformation:
+        Use the inverse of the transformation. This is the
+        transformation which undoes the specified transformation. Two
+        transform SOPs with all parameters but this equal will cancel
+        out each other's transformation.
+	
+
+
+
+

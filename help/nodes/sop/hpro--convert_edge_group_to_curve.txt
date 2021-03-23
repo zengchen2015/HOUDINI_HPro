@@ -1,0 +1,46 @@
+= HPro - Convert Edge Group to Curve =
+
+#type: node
+#context: sop
+#internal: hpro::convert_edge_group_to_curve
+#icon: SOP/convertline
+#tags: hpro, curve
+
+""" Convert selected edge group to curve. """
+
+NOTE:
+    Must say thanks to [五行精灵|https://github.com/Fe-Elf]
+
+It is different from [Labs - Edgegroup to Curve|labs--edgegroup_to_curve].
+*It uses wrangle that run over numbers but not run over detail to generate line from edge group.*
+It is faster than Labs - Edgegroup to Curve, especially when convert more than 100,000+ edge.
+I do not know why, Labs - Edgegroup to Curve costs a lot of time on polypath SOP.
+
+My SOP is x4 faster when convert 100,000 edges.
+
+[Image:/images/compare_with_Labs_edgegroup_to_curve.png]
+
+@parameters
+    Calculate Edge Count Per Thread:
+        Maximum number of iterations run at a time in any thread when *Run Over* is set to *Numbers*. If this is greater than or equal to *Number Count*, the VEX code will run single-threaded. If each iteration will take a very large amount of time, set this to 1, but there is quite often a significant advantage to making this value larger, especially if each iteration will take a small amount of time, and if any work can avoid being duplicated by running multiple iterations at a time.
+    Delete Unused Point Groups:
+        Remove any point groups that are left empty after convert edge to line.
+    Delete All of the Origin Edge Groups:
+        Remove all the edge groups on origin geometry, as they will be empty after convert edge to line.
+    == Pre-Fuse ==
+    Pre-Fuse:
+        I use polypath SOP to convert lines (generated from edge) to curve. So pre-fuse may get a cleaner result.
+    Match Attribute:
+        When enabled, the point attribute with this name is used to limit which points can be snapped together by comparing this attribute’s values for the corresponding points. The comparison is specified by the *Match Type*. This attribute can only be an integer or string attribute.
+    Match Condition:
+        The comparison to use for comparing the *Match Attribute* values of points. "Equal Attribute Values" requires values of *Match Attribute* to be equal in order for points to be considered for snapping together, which is useful for snapping within several separate pieces and not between pieces. "Unequal Attribute Values" requires that at least one point has a different value than the rest, which is useful for snapping between several separate pieces and not within pieces.
+        
+    == Polypath	 ==
+    Connect End Points:
+        When enabled, any points that share an edge with only one other point, "end points", will be connected to any points within *Max Distance* by rewiring vertices onto the lowest-numbered of the points. If *Connect Only To Other End Points* is enabled, end points will not be connected to non-end points.
+    Max Distance:
+        When *Connect End Points* is enabled, this specifies the farthest distance away that end points will be connected to other points.
+    Connect Only To Other End Points:
+        When *Connect End Points* is enabled and this is is enabled, end points will not be connected to non-end points. This is useful if you just want to connect loose ends to each other.
+    Make Isolated Loops Closed:
+        When enabled, if any resulting polygon curves are loops that have no other curves connected to them, these open polygons (curves) will be changed to closed polygons (surfaces).        

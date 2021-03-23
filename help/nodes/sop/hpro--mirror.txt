@@ -1,0 +1,48 @@
+= HPro - Mirror =
+
+#type: node
+#context: sop
+#internal: hpro::mirror
+#icon: SOP/mirror
+#tags: hpro, flip, copy, character
+
+"""Duplicates and mirrors geometry across a mirror plane."""
+
+The Mirror Operation duplicates and mirrors geometry.
+*It is a compilable SOP which can use attribute to custom mirror xform.*
+
+@parameters
+    Origin Use:
+        Origin of mirror plane. You can use value or point attribute to set origin position.
+
+    Distance Use:
+        Distance of mirror plane along its normal. You can use value or point attribute to set distance.
+
+    Direction Use:
+        Normal direction of mirror plane. You can use value or point attribute to set direction.
+
+    Vertex:
+        Use reverse SOP inside to reverse mirror geo.
+        
+        Reverse:
+            Reverses U for faces, U & V for hulls.
+        Reverse U/V:
+            Reverses U or V.
+            
+    Attributes to Transform:
+        Point and Vertex attributes that match this pattern will be transformed. Their Type Info will be used to determine how they should transform, as points, vectors, and normals all need different operations.
+
+        If P matches this string, then primitive transforms will also be rotated.
+
+        In no case is the transform attribute itself transformed.
+            
+    Reverse Normals:
+        Checked by default to make mirror geo's point/vertex normal correctly.
+        
+    Keep Original:
+        Preserves the input geometry. If unchecked, only the selected
+        geometry will remain.
+
+    Consolidate Seam:
+        Consolidates points along the mirror. New points are only
+        consolidated with their mirrored counterpart.

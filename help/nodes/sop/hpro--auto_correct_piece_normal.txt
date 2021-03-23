@@ -1,0 +1,22 @@
+= HPro - Auto Correct Piece Normal =
+
+#type: node
+#context: sop
+#internal: hpro::auto_correct_piece_normal
+#icon: SOP/foreach
+#tags: hpro, piece
+
+""" Auto correct piece's poly normal. """
+
+:video:
+    #src: /movies/auto_correct_piece_normal.mp4
+    
+@parameters
+    Detect Piece:
+        Two methods to detect piece.
+    Poly Gap Threshold:
+        I use bounding group method to find reversed poly. First, I extract piece's each poly centroid to point, then move the point along the poly normal, the move distance is the "Poly Gap Threshold". That means the two nearest polys must have gap that larger than "Poly Gap Threshold", otherwise it would not calculate correctly later. Then I treat the origin piece as a bounding geo, and use group SOP to group the point by bounding geo. If the point is grouped, it means the corresponding poly is reversed.
+    Correct Poly Normal:
+        Check it to really correct the reversed poly normal.
+    Mark Reversed Poly:
+        Mark the reversed poly by group or set attribute.
