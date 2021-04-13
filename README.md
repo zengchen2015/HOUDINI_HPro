@@ -11,7 +11,7 @@ The command pattern is `ophide Network OperatorName`
 
 For example : 
 
-- You can write
+- You can write the follow statement in the **OPcustomize** file : 
 
     ```
     ophide Sop hpro::simple_assemble
