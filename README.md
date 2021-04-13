@@ -30,7 +30,7 @@ For example :
 
 ---
 
-Here are the HDAs I highly recommend you to use (which satisfied me when complete those HDAs ) :
+Here are the HDAs I highly recommend you to use (which satisfied me when complete these HDAs ) :
 
 - boolean curve
 - carve curve
