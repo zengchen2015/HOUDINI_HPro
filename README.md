@@ -5,7 +5,7 @@
 
 ---
 
-Some of my HDAs are not useful now in Houdini v18.5. You can modify the **OPcustomize** file to hide the specified HDA int TAB menu. But do not delete them, because some of them may wrapped by other HDAs.
+Some of my HDAs are not useful now in Houdini v18.5. You can modify the **OPcustomize** file to hide the specified HDA in TAB menu. But do not delete them, because some of them may wrapped by other HDAs.
 
 The command pattern is `ophide Network OperatorName`
 
