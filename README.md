@@ -11,14 +11,14 @@ The command pattern is `ophide Network OperatorName`
 
 For example : 
 
-- You can write the follow statement in the **OPcustomize** file to hide my Assemble HDA : 
+- You can write the follow statement in the **OPcustomize** file to hide my HPro - Assemble HDA : 
 
     ```
     ophide Sop hpro::simple_assemble
     ```
 
-    - `Sop` : my Assemble HDA is in the Sop network
-    - `hpro::simple_assemble` : my Assemble HDA's operator name (operator type).
+    - `Sop` : my HPro - Assemble HDA is in the Sop network
+    - `hpro::simple_assemble` : my HPro - Assemble HDA's operator name (operator type).
 
 - And you can add `//` prefix to disable a statement 
 
