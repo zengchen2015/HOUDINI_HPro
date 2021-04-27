@@ -30,6 +30,21 @@ For example :
 
 ---
 
+Some HDAs need more improvement : 
+
+- [ ] piece arrange
+    add "visualize piece attribute" feature.
+- [ ] curve wire
+    consider to use "sweep" SOP to replace wrangle node that will be faster to create a wire.
+    and use "sweep" SOP can custom the div num.
+- [ ] curve wrap
+    - simplify the copy source attributes feature
+    - support the geo lib input
+- [ ] sweep geometry
+    consider to use improved "curve wrap" HDA and "curve custom split" HDA inside to achieve the feature of "chain" SOP and will be much faster than "chain" SOP.
+
+---
+
 Here are the HDAs I highly recommend you to use (which satisfied me when complete these HDAs ) :
 
 - boolean curve
@@ -44,4 +59,6 @@ Here are the HDAs I highly recommend you to use (which satisfied me when complet
 - piece arrange
 - point orient
 - quad scatter / quad scatter utility
+
+
 
