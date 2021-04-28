@@ -32,7 +32,7 @@ For example :
 
 Some HDAs need more improvement : 
 
-- [ ] **piece arrange**
+- [x] **piece arrange**
     - add "visualize piece attribute" feature.
 - [ ] **curve wire**
     - consider to use "sweep" SOP to replace wrangle node that will be faster to create a wire, and use "sweep" SOP can custom the div num.
