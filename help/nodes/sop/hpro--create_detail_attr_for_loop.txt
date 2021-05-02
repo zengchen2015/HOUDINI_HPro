@@ -20,7 +20,7 @@ It is the only way to get "Multiparm Block" parameter in for-loop with a compile
     Iteration Attribute:
         The default iteration attribute is "iteration", you can fill with other detail int attribute.
     Iteration Shift:
-        You can shift the int iteration value by yourself.
+        You can shift the int value from the iteration attribute by yourself to match the "First Instance" of the multiparm. For example, the multiparm's "First Instance" is 1, because the default iteration attribute is start at 0, so the Iteration Shift must be set to 1.
     Op with Multiparm:
         The node which has "Multiparm Block" parameter, it often be the parent node.
     Full Path:

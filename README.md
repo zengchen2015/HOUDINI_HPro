@@ -33,7 +33,6 @@ For example :
 Some HDAs need more improvement : 
 
 - [ ] **piece arrange**
-    - optimize the attrib visualize font scale and rotate workflow (xform font after invoke)
     - support to visualize more piece attrib
 - [ ] **curve wire**
     - consider to use "sweep" SOP to replace wrangle node that will be faster to create a wire, and use "sweep" SOP can custom the div num.
