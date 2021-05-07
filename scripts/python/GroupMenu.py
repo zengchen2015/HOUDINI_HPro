@@ -48,3 +48,19 @@ def point(node_relative_path):
             final_list.append(point_group_name)
 
     return final_list
+
+def vertex(node_relative_path):
+    node = hou.pwd()
+    input_node = node.node(node_relative_path)
+    geo = input_node.geometry()
+    final_list = []
+
+    if geo:
+        vertex_group_tuple = geo.vertexGroups()
+
+        for vertex_group in vertex_group_tuple:
+            vertex_group_name = vertex_group.name()
+            final_list.append(vertex_group_name)
+            final_list.append(vertex_group_name)
+
+    return final_list
