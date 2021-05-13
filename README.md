@@ -5,6 +5,16 @@
 
 ---
 
+For the rest of this year and up to the spring of 2021, I will not update my HDA frequently.
+Because I need to learn something else.
+
+**So if you have any question, please :** 
+
+- create an issue
+- send to my gmail : `zengchen01@gmail.com`
+
+---
+
 Some of my HDAs are not useful now in Houdini v18.5. You can modify the **OPcustomize** file to hide the specified HDA in TAB menu. But do not delete them, because some of them may wrapped by other HDAs.
 
 The command pattern is `ophide Network OperatorName`
