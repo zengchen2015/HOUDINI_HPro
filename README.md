@@ -5,7 +5,7 @@
 
 ---
 
-For the rest of this year and up to the spring of 2021, I will not update my HDA frequently.
+For the rest of this year and up to the spring of 2022, I will not update my HDA frequently.
 Because I need to learn something else.
 
 **So if you have any question, please :** 
